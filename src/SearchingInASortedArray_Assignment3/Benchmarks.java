@@ -4,7 +4,6 @@ import java.util.Random;
 
 import static SearchingInASortedArray_Assignment3.Task_Methods.*;
 
-
 public class Benchmarks {
     //Unsorted lin search
     public static void benchmark1(){

@@ -14,11 +14,17 @@ public class Task_Methods {
 
     public static boolean search_unsorted_optimized(int[] sorted_array, int key) {
         for (int index = 0; index < sorted_array.length ; index++) {
-            if(sorted_array[index] > key){
-                return false;
-            }
-            if (sorted_array[index] == key) {
-                return true;
+//            if(sorted_array[index] > key){
+//                return false;
+//            }
+//            if (sorted_array[index] == key) {
+//                return true;
+//            }
+            if(sorted_array[index]>=key){
+                if(sorted_array[index] == key){
+                    return true;
+                }
+                else return false;
             }
         } return false;
     }
