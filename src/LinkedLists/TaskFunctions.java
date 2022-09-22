@@ -1,7 +1,6 @@
 package LinkedLists;
 
 import LinkedLists.Assignment_5.SinglyLinkedList;
-
 import java.util.Random;
 
 public class TaskFunctions {
@@ -9,6 +8,11 @@ public class TaskFunctions {
         Random random = new Random();
         for (int i = 0; i < n; i++) {
             sll.appendData(random.nextInt(n));
+        }
+    }
+    public static void addIElementsToTheLinkedList(SinglyLinkedList sll, int n){
+        for (int i = 0; i < n; i++) {
+            sll.appendData(i*2 -3);
         }
     }
     public static Node randomNodeGenerator(int n){
@@ -29,12 +33,12 @@ public class TaskFunctions {
         System.out.printf("%d\t%d\n",n,t/n);
     }
     public static void benchmarkAppendList
-            (SinglyLinkedList singlyLinkedList, SinglyLinkedList singlyLinkedList2 , int n){
+            (SinglyLinkedList l1, SinglyLinkedList l2 , int n){
         Random r = new Random();
         long t = 0, t0, t1;
         for (int i = 0; i < n ; i++) {
             t0 = System.nanoTime();
-            singlyLinkedList.appendList(singlyLinkedList2);
+            l1.appendList(l2);
             t1 = System.nanoTime();
             t += t1-t0;
         }

@@ -31,37 +31,44 @@ public class SinglyLinkedList implements Lists {
     }
 
     public void appendData(int data){
-        Node current = head;
         if(head == null){
             head = new Node(data);
+            tail = head;
             return;
-        }else{
+        } else{
+            if(tail != null){
+                tail.next = new Node(data);
+                return;
+            }
+            Node current = head;
             while(current.next != null){
                 current = current.next;
             }
             current.next = new Node(data);
+            tail = current.next;
+        }
+    }
+    public void appendList(SinglyLinkedList singlyLinkedList) {
+        if(head == null){
+            head = singlyLinkedList.head;
+            return;
+        }
+        else if(this.head == singlyLinkedList.head) return;
+        else{
+            this.appendNode(singlyLinkedList.head);
         }
     }
 
     @Override
-    public void appendList(SinglyLinkedList singlyLinkedList) {
-//        if(head == null){
-//            head = singlyLinkedList.head;
-//            return;
-//        }
-//        this.head.next = singlyLinkedList.head;
-//        return;
-    }
-
-    @Override
     public Node removeData(int data) {
-        Node current = head, returnNode = null;
+        Node returnNode = null;
         if(head.data == data){
             returnNode = head;
             head = head.next;
             return returnNode;
         }
         else{
+            Node current = head;
             while(current.next != null){
                 if(current.next.data == data){
                     returnNode = current.next;
@@ -77,12 +84,13 @@ public class SinglyLinkedList implements Lists {
 
     @Override
     public void appendNode(Node node) {
-        Node current = head;
+
         if(head == null){
             head = node;
             return;
         }
         else{
+            Node current = head;
             while(current.next!=null){
                 current = current.next;
             }
@@ -92,12 +100,12 @@ public class SinglyLinkedList implements Lists {
 
     @Override
     public void removeNode(Node node) {
-        Node current = head;
         if(head == node){
             head = head.next;
             return;
         }
         else{
+            Node current = head;
             while(current.next != null){
                 if(current.next == node){
                     current.next = current.next.next;
@@ -111,12 +119,12 @@ public class SinglyLinkedList implements Lists {
     }
 
     public int listLength(){
-        Node current = head;
         int length = 0;
         if(head == null){
             return 0;
         }
         else{
+            Node current = head;
             while(current != null){
                 current = current.next;
                 length++;
@@ -128,11 +136,11 @@ public class SinglyLinkedList implements Lists {
         return head;
     }
     public Node getTail(){
-        Node current = head;
         if(head == null) return null;
         else if (head.next == null) {
             return head;
         } else{
+            Node current = head;
             while(current.next!=null){
                 current = current.next;
             }
