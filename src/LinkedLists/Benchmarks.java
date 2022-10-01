@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Benchmarks {
-    public static void benchmark(int iteration){
+    public static void benchmark(int iterations){
 
         int [] nValues =
-                { 1000,250, 500, 1_000, 2_000, 4_000, 8_000, 16_000, 32_000, 64_000, 128_000, 256_000};
+                { 1_000, 250, 500, 1_000, 2_000, 4_000, 8_000, 16_000, 32_000, 64_000, 128_000, 256_000, 512_000, 1_024_000};
                 //{ 1000, 25, 50, 100, 200, 400, 800, 1_600, 3_200, 6_400, 12_800, 25_600};
 
         Random rd = new Random();
@@ -20,16 +20,17 @@ public class Benchmarks {
         for (int i = 0; i < nValues.length; i++) {
             int value = rd.nextInt(nValues[i] - 1);
             long t = 0, t0, t1;
-            for (int j = 0; j < iteration; j++) {
-
-                SinglyLinkedList sll = new SinglyLinkedList();
-                addElements(sll,nValues[i]);
-//                DoublyLinkedList dll = new DoublyLinkedList();
-//                doubleAddElements(dll,nValues[i]);
+            for (int j = 0; j < iterations; j++) {
+//                SinglyLinkedList sll = new SinglyLinkedList();
+//                addElements(sll,nValues[i]);
+                DoublyLinkedList dll = new DoublyLinkedList();
+                doubleAddElements(dll,nValues[i]);
                 t0 = System.nanoTime();
-                //sll.appendNode(new Node(value));
-                sll.removeData(1);
-                //dll.appendNode(new Node(value));
+                dll.addNodeToStart(new Node(value));
+                //sll.prependHead(new Node(value));
+//                sll.appendNode(new Node(value));
+//                sll.removeData(1);
+//                dll.appendNode(new Node(value));
 //                dll.removeData(value);
 //                dll.deleteData(value);
                 t1 = System.nanoTime();
@@ -44,21 +45,31 @@ public class Benchmarks {
                 t1 = System.nanoTime();
                 t += t1 - t0;*/
             }
-            System.out.println(nValues[i] + "\t" + t/iteration);
+            System.out.println(nValues[i] + "\t" + t/iterations);
         }
 
     }
 
-    public static void addElements(SinglyLinkedList nodeA, int n){
+    public static int [] randomSequenceGenerator(int n){
+        int[] sequence = new int[n];
+        Random rnd = new Random();
         for (int i = 0; i < n; i++) {
-            nodeA.appendData(i*3+1);
+            sequence[i] = rnd.nextInt(n);
         }
+        return sequence;
     }
     public static void doubleAddElements(DoublyLinkedList nodeA, int n){
         for (int i = 0; i < n; i++) {
             nodeA.appendNode(new Node(i*3+1));
         }
     }
+
+    public static void addElements(SinglyLinkedList singlyLinkedList, int n){
+        for (int i = 0; i < n; i++) {
+            singlyLinkedList.appendData(i*3+1);
+        }
+    }
+
     public static void dynamicArrayBenchmark(int iteration){
         int [] nValues =
 //                { 1000,250, 500, 1_000, 2_000, 4_000, 8_000, 16_000, 32_000, 64_000, 128_000, 256_000};

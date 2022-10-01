@@ -4,8 +4,16 @@ import LinkedLists.Assignment_5.DynamicStackWithLinkedLists;
 import LinkedLists.Assignment_5.SinglyLinkedList;
 import LinkedLists.Assignment_5.StackUnderflow;
 
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) throws StackUnderflow {
+        SinglyLinkedList a = new SinglyLinkedList();
+        a.appendData(1);
+        a.appendData(3);
+        System.out.println(a);
+        a.prependHead(new Node(4));
+        System.out.println(a);
 //        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
 //        DynamicStackWithLinkedLists dsll = new DynamicStackWithLinkedLists(singlyLinkedList);
 //        dsll.push(5);
@@ -20,25 +28,25 @@ public class Main {
 //        dsll.pop();
 //        dsll.printStack();
 
-        int iterations = 1000;
-        int [] nValues =
-                { 1000, 250, 500, 1_000, 2_000, 4_000, 8_000, 16_000, 32_000, 64_000, 128_000, 256_000};
-        for (int i = 0; i <nValues.length ; i++) {
-            long t = 0, t0, t1;
-            for (int j = 0; j < iterations; j++) {
-                SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-                SinglyLinkedList singlyLinkedList2 = new SinglyLinkedList();
-//                TaskFunctions.addRandomElementsToTheLinkedList(singlyLinkedList,100);
-//                TaskFunctions.addRandomElementsToTheLinkedList(singlyLinkedList2,nValues[i]);
-                TaskFunctions.addIElementsToTheLinkedList(singlyLinkedList,100);
-                TaskFunctions.addIElementsToTheLinkedList(singlyLinkedList2,nValues[i]);
-                t0 = System.nanoTime();
-                singlyLinkedList.appendList(singlyLinkedList2);
-                t1 = System.nanoTime();
-                t+= t1 - t0;
-            }
-            System.out.println(nValues[i]+"\t"+t/iterations);
-        }
+//        int iterations = 1000;
+//        int [] nValues =
+//                { 1000, 250, 500, 1_000, 2_000, 4_000, 8_000, 16_000, 32_000, 64_000, 128_000, 256_000};
+//        for (int i = 0; i <nValues.length ; i++) {
+//            long t = 0, t0, t1;
+//            for (int j = 0; j < iterations; j++) {
+//                SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+//                SinglyLinkedList singlyLinkedList2 = new SinglyLinkedList();
+////                TaskFunctions.addRandomElementsToTheLinkedList(singlyLinkedList,100);
+////                TaskFunctions.addRandomElementsToTheLinkedList(singlyLinkedList2,nValues[i]);
+//                TaskFunctions.addIElementsToTheLinkedList(singlyLinkedList,100);
+//                TaskFunctions.addIElementsToTheLinkedList(singlyLinkedList2,nValues[i]);
+//                t0 = System.nanoTime();
+//                singlyLinkedList.appendList(singlyLinkedList2);
+//                t1 = System.nanoTime();
+//                t+= t1 - t0;
+//            }
+//            System.out.println(nValues[i]+"\t"+t/iterations);
+//        }
         /*
         singlyLinkedList.appendData(10);
         singlyLinkedList.appendData(11);

@@ -1,7 +1,7 @@
 package LinkedLists.Assignment_5;
 
 public class StackUnderflow extends Exception{
-    StackUnderflow(){
+    public StackUnderflow(){
         super("You cannot pop from an empty list");
     }
     StackUnderflow(String message){

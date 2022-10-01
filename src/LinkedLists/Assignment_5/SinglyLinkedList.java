@@ -36,8 +36,8 @@ public class SinglyLinkedList implements Lists {
             tail = head;
             return;
         } else{
-            if(tail != null){
-                tail.next = new Node(data);
+            if(tail.next != null){
+                tail.next.next = new Node(data);
                 return;
             }
             Node current = head;
@@ -149,5 +149,24 @@ public class SinglyLinkedList implements Lists {
     }
     public boolean isEmpty(){
         return (this.listLength() == 0);
+    }
+    public Node getNode(int data) throws NoSuchElementException{
+        if(head.data == data){
+            return head;
+        }
+        else{
+            Node current = head;
+            while(current.next != null){
+                if(current.data == data){
+                    return current;
+                }
+                current = current.next;
+            }
+            throw new NoSuchElementException();
+        }
+    }
+    public void prependHead(Node node){
+        node.next = head;
+        head = node;
     }
 }

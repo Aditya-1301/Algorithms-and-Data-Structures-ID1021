@@ -2,7 +2,7 @@ package LinkedLists.Assignment_5;
 
 import LinkedLists.*;
 
-public class DynamicStackWithLinkedLists {
+public class DynamicStackWithLinkedLists<T>{
     public static SinglyLinkedList stack;
     public static Node top;
 
@@ -51,5 +51,9 @@ public class DynamicStackWithLinkedLists {
 
     public void printStack(){
         System.out.println(this);
+    }
+
+    public boolean isEmpty() {
+        return stack.isEmpty();
     }
 }

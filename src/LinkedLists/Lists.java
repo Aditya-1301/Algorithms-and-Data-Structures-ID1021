@@ -2,7 +2,7 @@ package LinkedLists;
 
 import LinkedLists.Assignment_5.SinglyLinkedList;
 
-public interface Lists {
+public interface Lists{
     public void printList();
     public void appendData(int data);
     public Node removeData(int data);

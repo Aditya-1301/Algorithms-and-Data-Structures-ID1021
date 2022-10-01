@@ -5,7 +5,7 @@ import LinkedLists.Lists;
 import LinkedLists.Node;
 
 public class DoublyLinkedList implements Lists {
-    Node head;
+    static Node head;
     Node tail;
 
     @Override
@@ -52,6 +52,7 @@ public class DoublyLinkedList implements Lists {
             current.next.prev = current;
             tail = current.next;
         }
+
     }
 
     @Override
@@ -213,4 +214,23 @@ public class DoublyLinkedList implements Lists {
         }
         return false;
     }
+
+    public static void addNodeToStart(Node n){
+        if (head != null) {
+            n.next = head;
+        }
+        head = n;
+    }
 }
+
+
+
+//Notes:
+/*
+*We don't need to check if the list even contains the element that we are trying to remove as we assume that much
+*This means this operation takes constant time to complete. Thus, we can see the benefit of using a doubly linked list
+*over a singly linked list. Similarly, when we want to append data to the end of a list we just keep track of the last
+*element(i.e. the tail) then we can append data in constant time as we always just set the next element of the tail to
+*the new data node.
+*
+*/

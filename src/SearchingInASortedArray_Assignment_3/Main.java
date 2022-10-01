@@ -5,8 +5,8 @@ import static SearchingInASortedArray_Assignment_3.Benchmarks.*;
 public class Main {
     public static void main(String[] args) {
         //benchmark1();
-        benchmark2();
-        //benchmark3();
+        //benchmark2();
+        benchmark3();
         //benchmark4();
         //benchmark5();
     }

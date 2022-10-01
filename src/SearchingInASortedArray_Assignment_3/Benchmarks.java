@@ -89,22 +89,23 @@ public class Benchmarks {
 
     public static void benchmark3(){
         //binary search
-        int [ ] nValues =
-                {8_000, 16_000, 32_000, 64_000, 128_000, 256_000, 512_000};
-        int min = (int) Double.POSITIVE_INFINITY;
+//        int [ ] nValues =
+//                {1_000, 250 ,500, 1_000, 2_000, 4_000, 8_000, 16_000, 32_000, 64_000, 128_000, 256_000, 512_000};
+        int n1 = 250;
         long t = 0, t1,t2;
         Random r = new Random();
         int n = 1000;
-        for (int i = 0; i < nValues.length; i++) {
+        for (int i = 0; i < n1; i++) {
             int key = r.nextInt();
             for (int j = 0; j < n ; j++) {
-                int [] array = sorted(nValues[i]);
+                int [] array = sorted(n1);
                 t1 = System.nanoTime();
                 binary_search(array,key);
                 t2 = System.nanoTime();
                 t += t2 - t1;
             }
-            System.out.println("Time taken for n = " + nValues[i] + "--->" + t/(n));
+            System.out.println(n1 + "\t" + t/(n));
+            n1 *= 2;
         }
     }
 

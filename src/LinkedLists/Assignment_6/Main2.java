@@ -20,7 +20,7 @@ public class Main2 {
 //        doublyLinkedList.deleteData(6);
 ////        doublyLinkedList.removeData(7);
 //        doublyLinkedList.printList();
-        Benchmarks.benchmark(1000);
+        Benchmarks.benchmark(100);
 //        int iterations = 1000;
 //        Random r = new Random();
 //        int [] nValues =
