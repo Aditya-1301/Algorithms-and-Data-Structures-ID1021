@@ -21,21 +21,23 @@ public class Main {
         tree.add(6,106);
         tree.add(3,103);
         //tree.delete_Recursive(tree.root, 1);
-        for (int i : tree) System.out.println("next value " + i);
-        TreeIterator iterator = new TreeIterator(tree);
-        int i = iterator.next();
-        System.out.println("key: " + i);
-        i = iterator.next();
-        System.out.println("key: " + i);
-        i = iterator.next();
-        System.out.println("key: " + i);
-        tree.add(60, 9);
-        i = iterator.next();
-        System.out.println("key: " + i);
-//        tree.root.print();
-//        for (int i: tree)
-//            System.out.println("next value " + i);
-//        Benchmark.benchmark(1000);
-
+        for (int i : tree) {
+            System.out.println("next value " + i);
+            //tree.add(6*i, 5-i);
+        }
+//        System.out.println();
+//        for (int i: tree) {
+//            System.out.println("next value "+ i);
+//        }
+//        TreeIterator2 iterator = new TreeIterator2(tree);
+//        int i = iterator.next();
+//        System.out.println("key: " + i);
+//        i = iterator.next();
+//        System.out.println("key: " + i);
+//        i = iterator.next();
+//        System.out.println("key: " + i);
+//        tree.add(60, 9);
+//        i = iterator.next();
+//        System.out.println("key: " + i);
     }
 }

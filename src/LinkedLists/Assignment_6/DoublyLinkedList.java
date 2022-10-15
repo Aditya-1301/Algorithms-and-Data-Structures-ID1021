@@ -52,7 +52,6 @@ public class DoublyLinkedList implements Lists {
             current.next.prev = current;
             tail = current.next;
         }
-
     }
 
     @Override

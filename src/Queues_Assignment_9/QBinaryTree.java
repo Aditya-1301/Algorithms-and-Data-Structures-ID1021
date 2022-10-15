@@ -1,15 +1,14 @@
-package Trees_Assignment_7;
+package Queues_Assignment_9;
 
 import java.util.Iterator;
 
-public class BinaryTree implements Iterable<Integer>{
-
-    public static class TreeNode {
+public class QBinaryTree implements Iterable<Integer>{
+    public static class QTreeNode {
         public Integer key;
         public Integer value;
-        public TreeNode left, right;
+        public QTreeNode left, right;
 
-        public TreeNode(Integer key, Integer value) {
+        public QTreeNode(Integer key, Integer value) {
             this.key = key;
             this.value = value;
             this.left = this.right = null;
@@ -25,7 +24,7 @@ public class BinaryTree implements Iterable<Integer>{
                     this.left.add(key,value);
                 }
                 else{
-                    this.left = new TreeNode(key,value);
+                    this.left = new QTreeNode(key,value);
                 }
             }
             else{
@@ -33,26 +32,10 @@ public class BinaryTree implements Iterable<Integer>{
                     this.right.add(key,value);
                 }
                 else{
-                    this.right = new TreeNode(key,value);
+                    this.right = new QTreeNode(key,value);
                 }
             }
         }
-
-//        public Integer lookup(Integer key){
-//            if(this.key == key){
-//                return this.value;
-//            }
-//            else{
-//                if(this.key > key  && left != null){
-//                    return left.lookup(key);
-//                }
-//                else if(this.key < key  && right != null){
-//                    return right.lookup(key);
-//                }
-//            }
-//            return null;
-//        }
-
         public void print() {
             if(left != null)
                 left.print();
@@ -65,49 +48,39 @@ public class BinaryTree implements Iterable<Integer>{
             this.value = value;
         }
     }
+    static QTreeNode root;
 
-    static TreeNode root;
-
-    public BinaryTree() {
+    public QBinaryTree() {
         root = null;
     }
 
     public static void add(Integer key, Integer value){
         if(root == null){
-            root = new TreeNode(key,value);
+            root = new QTreeNode(key,value);
         }
         else{
             root.add(key,value);
         }
     }
-
-//    public static Integer lookup(int key){
-//        if(root == null){
-//            return null;
-//        }
-//        else{
-//            return root.lookup(key);
-//        }
-//    }
-public Integer lookup(Integer key) {
-    TreeNode here = root;
-    while(here != null){
-        if(key < here.key) {
-            here = here.left;
+    public Integer lookup(Integer key) {
+        QTreeNode here = root;
+        while(here != null){
+            if(key < here.key) {
+                here = here.left;
+            }
+            else if(key > here.key) {
+                here = here.right;
+            }
+            else {
+                return here.value;
+            }
         }
-        else if(key > here.key) {
-            here = here.right;
-        }
-        else {
-            return here.value;
-        }
+        return null;
     }
-    return null;
-}
 
     @Override
     public Iterator<Integer> iterator() {
-        return new TreeIterator2(this);
+        return new QTreeIterator2(this);
     }
 
     void deleteKey(int key) {
@@ -115,7 +88,7 @@ public Integer lookup(Integer key) {
     }
 
     //recursive delete function
-    TreeNode delete_Recursive(TreeNode root, int key)  {
+    QTreeNode delete_Recursive(QTreeNode root, int key)  {
         //tree is empty
         if (root == null)  return null;
 
@@ -140,7 +113,7 @@ public Integer lookup(Integer key) {
         }
         return root;
     }
-    int minValue(TreeNode root)  {
+    int minValue(QTreeNode root)  {
         //initially minval = root
         int minval = root.key;
         //find minval
