@@ -1,4 +1,4 @@
-package PriorityQueues;
+package PriorityQueues_10;
 
 public class HeapArray {
     public Integer [] heap;

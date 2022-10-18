@@ -11,21 +11,26 @@ public class Main {
 //        dynamicQueue.dequeue();
 //        System.out.println(dynamicQueue);
 
-//        StaticCircularQueue staticQueue = new StaticCircularQueue(5);
-//        staticQueue.enqueue(2);
-//        staticQueue.enqueue(4);
-//        staticQueue.enqueue(2);
-//        staticQueue.enqueue(4);
-//        //staticQueue.enqueue(null);
-//        //staticQueue.dequeue();
-//        staticQueue.enqueue(3);
-//        staticQueue.dequeue();
-//        staticQueue.enqueue(5);
-//        staticQueue.enqueue(4);
-//        int i = 0;
-//        while (i<StaticCircularQueue.getCapacity()){
-//            System.out.printf("%5d",staticQueue.queue[i++]);
-//        }
+        StaticCircularQueue staticQueue = new StaticCircularQueue(5);
+        staticQueue.enqueue(2);
+        staticQueue.enqueue(4);
+        staticQueue.enqueue(2);
+        staticQueue.enqueue(4);
+        staticQueue.enqueue(null);
+        staticQueue.dequeue();
+        int j = 0;
+        while (j<StaticCircularQueue.getCapacity()){
+            System.out.printf("%5d",staticQueue.queue[j++]);
+        }
+        staticQueue.enqueue(3);
+        //staticQueue.dequeue();
+        staticQueue.enqueue(5);
+        staticQueue.enqueue(4);
+        System.out.println();
+        int i = 0;
+        while (i<StaticCircularQueue.getCapacity()){
+            System.out.printf("%5d",staticQueue.queue[i++]);
+        }
 
 //        QBinaryTree tree = new QBinaryTree();
 //        tree.add(5,105);
@@ -38,20 +43,20 @@ public class Main {
 //        for (int i: tree) {
 //            System.out.println("next value " + i);
 //        }
-        DynamicCircularQueue dcq = new DynamicCircularQueue(5);
-        dcq.enqueue(5);
-        dcq.enqueue(4);
-        dcq.enqueue(3);
-        dcq.enqueue(2);
-        dcq.enqueue(1);
-        for (int i: dcq.queue) {
-            System.out.printf("%5d", i);
-        }
-        dcq.enqueue(0);
-        dcq.enqueue(1);
-        System.out.println();
-        for (int i: dcq.queue) {
-            System.out.printf("%5d", i);
-        }
+//        DynamicCircularQueue dcq = new DynamicCircularQueue(5);
+//        dcq.enqueue(5);
+//        dcq.enqueue(4);
+//        dcq.enqueue(3);
+//        dcq.enqueue(2);
+//        dcq.enqueue(1);
+//        for (int i: dcq.queue) {
+//            System.out.printf("%5d", i);
+//        }
+//        dcq.enqueue(0);
+//        dcq.enqueue(1);
+//        System.out.println();
+//        for (int i: dcq.queue) {
+//            System.out.printf("%5d", i);
+//        }
     }
 }

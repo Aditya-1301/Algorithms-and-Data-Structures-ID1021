@@ -1,8 +1,5 @@
 package Quicksort_Assignment_8;
 
-import LinkedLists.Node;
-import PriorityQueues.Heaps;
-
 public class LinkedList {
     public static class Node{
         public int data;

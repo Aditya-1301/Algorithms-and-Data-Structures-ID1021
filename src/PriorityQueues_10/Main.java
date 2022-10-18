@@ -1,4 +1,4 @@
-package PriorityQueues;
+package PriorityQueues_10;
 
 import LinkedLists.Assignment_5.SinglyLinkedList;
 
