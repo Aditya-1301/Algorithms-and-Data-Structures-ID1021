@@ -92,7 +92,6 @@ public class LinkedList {
         if(head.data == data){
             returnNode = head;
             head = head.next;
-            return returnNode;
         }
         else{
             Node current = head;
@@ -100,13 +99,10 @@ public class LinkedList {
                 if(current.next.data == data){
                     returnNode = current.next;
                     current.next = current.next.next;
-                    return returnNode;
                 }
                 current = current.next;
             }
         }
-        throw new NoSuchElementException
-                ("Data that you are trying to remove is not part of this list");
+        return returnNode;
     }
-
 }

@@ -5,6 +5,7 @@ import java.io.FileReader;
 
 public class ZipKey {
     static Node[] data;
+    static int [] dataIndex;
     int max;
     public class Node {
         Integer zipCode;
@@ -15,6 +16,11 @@ public class ZipKey {
             zipCode = z;
             area = a;
             population = p;
+        }
+
+        @Override
+        public String toString() {
+            return "zipcodekey = " + zipCode + " | area = " + area + " | population = " + population;
         }
     }
     public ZipKey(String file) {
@@ -43,7 +49,24 @@ public class ZipKey {
        //Unlike doing a linear search or a binary search through an array.
     }
 
-
+    public void collisions(int mod) {
+        dataIndex = new int[mod];
+        int[] cols = new int[10];
+        for (int i = 0; i < max; i++) {
+            Integer index = dataIndex[i] % mod;
+            cols[dataIndex[index]]++;
+            dataIndex[index]++;
+        }
+        System.out.print(mod);
+//    for (int i = 0; i < dataIndex.length; i++) {
+//        System.out.print("\t" + dataIndex[i]);
+//    }
+//    System.out.println("\n---------------------------------------------------------------------")
+        for (int i = 0; i < 10; i++) {
+            System.out.print("\t" + cols[i]);
+        }
+        System.out.println("\n---------------------------------------------------------------------");
+    }
 
     private String removeSpaces(String s){
         StringBuilder s1 = new StringBuilder();

@@ -1,7 +1,6 @@
 package T9_Algorithm_Assignment_12.Implementation2;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 public class Tries {
@@ -11,11 +10,14 @@ public class Tries {
         public char character;
 
         public Node(char c){
-            array = new Node[26];
+            array = new Node[30];
             endOfWord = false;
             character = c;
         }
-        public Node(){}
+        public Node(){
+            array = new Node[30];
+            endOfWord = false;
+        }
         public Node get(char c){
             int index = calcIndex(c);
             if (index < 0 || index > 29) return null;
@@ -52,8 +54,8 @@ public class Tries {
     private Node root;
     public Tries() throws IOException {
         root = new Node();
-//        read("D:\\TCOMK Pdfs\\Year 2\\Algorithms and Data Structures" +
-//        "\\ADSA_Assignments\\src\\T9_Algorithm_Assignment_12\\kelly.txt");
+        read("D:\\TCOMK Pdfs\\Year 2\\Algorithms and Data Structures" +
+        "\\ADSA_Assignments\\src\\T9_Algorithm_Assignment_12\\kelly1.txt");
     }
 
     private void read(String fileAddress) throws IOException {
@@ -69,13 +71,11 @@ public class Tries {
     }
 
     public void addWord(String word){
-        word = word.toLowerCase();
         Node current = root;
         char c;
         for (int i = 0; i < word.length() ; i++) {
             c = word.charAt(i);
-            current.add(c);
-            current = current.get(c);
+            if(current.add(c)) current = current.get(c);
         }
         current.endOfWord = true;
     }
@@ -87,11 +87,11 @@ public class Tries {
             char[] cc = numberToChar(sequence.charAt(i));
             System.arraycopy(cc, 0, outcomes[i], 0, cc.length);
         }
-        recursiveSearch(outcomes, 0, root, "");
+        prefixSearch(outcomes, 0, root, "");
     }
-    private void recursiveSearch(char[][] outcomes, int index, Node node, String word)
+    private void prefixSearch(char[][] outcomes, int index, Node node, String word)
     {
-        int length = outcomes[0].length;
+        int length = outcomes.length;
         if (index < length)
         {
             for (int i = 0; i < 3; i++)
@@ -101,7 +101,7 @@ public class Tries {
                 if (node2 != null)
                 {
                     String temp = word + node2.character;
-                    recursiveSearch(outcomes, index + 1, node2, temp);
+                    prefixSearch(outcomes, index + 1, node2, temp);
                 }
             }
         }
@@ -114,7 +114,7 @@ public class Tries {
                 if (node2 != null)
                 {
                     String temp = word + node2.character;
-                    recursiveSearch(outcomes, index + 1, node2, temp);
+                    prefixSearch(outcomes, index + 1, node2, temp);
                 }
             }
         }

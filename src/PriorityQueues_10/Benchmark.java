@@ -22,13 +22,15 @@ public class Benchmark {
 //                h.root.incrementData(value);
                 //tPush += h.pushDown(h.root);
                 l = randomLinkedListGenerator(nValues[i]);
+                //l.addDataConstant(value);
                 t0 = System.nanoTime();
 //                for (int k = 0; k < nValues[i]; k++) {
 //                    //h.add(k);
 //                    //h1.add(k);
 //                }
-                l.addDataConstant(value);
-                l.addPriorityLinear(value-1);
+                //l.addDataConstant(value);
+                //l.removeLinear(value+2);
+                l.removePriorityConstant();
                 //h.remove();
                 //h1.removeRoot(h1.root);
                 t1 = System.nanoTime();

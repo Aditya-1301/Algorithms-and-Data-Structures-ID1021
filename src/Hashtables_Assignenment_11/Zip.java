@@ -2,6 +2,8 @@ package Hashtables_Assignenment_11;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Zip {
     static Node[] data;
@@ -25,7 +27,7 @@ public class Zip {
         }
     }
     public Zip(String file) {
-        modulo = 14616;
+        modulo = 20000;
         data = new Node[modulo];
         keys = new Integer[modulo];
     try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -37,6 +39,7 @@ public class Zip {
             {
                 Integer code = Integer.valueOf(row[0].replaceAll("\\s",""));
                 data[index] = new Node(code, row[1], Integer.valueOf(row[2]));
+                keys[index] = code;
             }
             else
             {
@@ -47,6 +50,7 @@ public class Zip {
                 }
                 Integer code = Integer.valueOf(row[0].replaceAll("\\s",""));
                 data[index] = new Node(code, row[1], Integer.valueOf(row[2]));
+                keys[index] = code;
             }
             max = index - 1;
         }

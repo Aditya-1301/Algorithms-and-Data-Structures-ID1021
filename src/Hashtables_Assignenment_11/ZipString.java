@@ -26,7 +26,7 @@ public class ZipString {
         }
     }
     public ZipString(String file) {
-        modulo = 14616;
+        modulo = 100000;
         data = new Node[modulo];
         keys = new Integer[modulo];
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -35,7 +35,7 @@ public class ZipString {
             while ((line = br.readLine()) != null) {
                 String[] row = line.split(",");
                 Integer code = Integer.valueOf(row[0].replaceAll("\\s", ""));
-                data[i] = new Node(row[0], row[1], Integer.valueOf(row[2]));
+                data[code] = new Node(row[0], row[1], Integer.valueOf(row[2]));
                 keys[i++] = code;
             }
             max = i - 1;
@@ -54,6 +54,10 @@ public class ZipString {
         return null;
     }
 
+    public Node lookupConstant(String s){
+        return data[Integer.parseInt(removeSpaces(s))];
+    }
+
     public void collisions(int mod) {
         dataIndex = new int[mod];
         int[] cols = new int[10];
@@ -64,7 +68,7 @@ public class ZipString {
         }
         System.out.print(mod);
         for (int i = 0; i < 10; i++) {
-            System.out.print("\t" + cols[i]);
+            System.out.print("\n" + cols[i]);
         }
         System.out.println("\n---------------------------------------------------------------------");
     }
