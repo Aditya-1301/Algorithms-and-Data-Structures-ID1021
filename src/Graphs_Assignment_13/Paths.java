@@ -12,7 +12,7 @@ public class Paths {
     }
 
     public static void main(String [] args) {
-//        bench(  "Malmö","Kiruna", 10_000);
+        benchmark(  "Malmö","Kiruna", 10000);
         benchmark(  "Malmö","Göteborg", 557);
         benchmark(  "Göteborg","Stockholm", 557);
         benchmark(  "Malmö","Stockholm", 557);
@@ -25,14 +25,14 @@ public class Paths {
     }
 
     public static void benchmark(String from, String to, Integer max){
-        Map map = new Map("D:\\TCOMK Pdfs\\Year 2\\Period 1\\Algorithms and Data Structures\\ADSA_Assignments\\src\\Graphs_Assignment_13\\trains.csv");
+        Map map = new Map("c");
         Paths path = new Paths();
 
         long t0 = System.nanoTime();
         Integer dist = path.shortest(map.lookup(from), map.lookup(to), max);
         long time = (System.nanoTime() - t0)/1_000_000;
 
-//        System.out.println("shorest: " + dist + " min (" + time + " ms)");
+//        System.out.println("shortest: " + dist + " min (" + time + " ms)");
         System.out.println("From:" + from + "\t" + "To:" + to + "\t" + "shortest: " + dist + " min (" + time + " ms)");
     }
 
