@@ -12,28 +12,31 @@ public class Paths {
     }
 
     public static void main(String [] args) {
-        benchmark(  "Malmö","Kiruna", 10000);
-        benchmark(  "Malmö","Göteborg", 557);
-        benchmark(  "Göteborg","Stockholm", 557);
         benchmark(  "Malmö","Stockholm", 557);
-        benchmark(  "Stockholm","Sundsvall", 557);
-        benchmark(  "Stockholm","Umeå", 557);
-        benchmark(  "Göteborg","Sundsvall", 557);
-        benchmark(  "Sundsvall","Umeå", 557);
-        benchmark(  "Umeå","Göteborg", 1100);
-        benchmark(  "Göteborg","Umeå", 1100);
+        benchmark(  "Malmö","Sundsvall", 557);
+        benchmark(  "Malmö","Umeå", 10000);
+        benchmark(  "Malmö","Kiruna", 10000);
+//        benchmark(  "Malmö","Göteborg", 557);
+//        benchmark(  "Göteborg","Stockholm", 557);
+//        benchmark(  "Malmö","Stockholm", 557);
+//        benchmark(  "Stockholm","Sundsvall", 557);
+//        benchmark(  "Stockholm","Umeå", 557);
+//        benchmark(  "Göteborg","Sundsvall", 557);
+//        benchmark(  "Sundsvall","Umeå", 557);
+//        benchmark(  "Umeå","Göteborg", 1100);
+//        benchmark(  "Göteborg","Umeå", 1100);
     }
 
     public static void benchmark(String from, String to, Integer max){
-        Map map = new Map("c");
+        Map map = new Map("D:\\TCOMK Pdfs\\Year 2\\Period 1\\Algorithms and Data Structures\\ADSA_Assignments\\src\\Graphs_Assignment_13\\trains.csv");
         Paths path = new Paths();
 
-        long t0 = System.nanoTime();
+        float t0 = System.nanoTime();
         Integer dist = path.shortest(map.lookup(from), map.lookup(to), max);
-        long time = (System.nanoTime() - t0)/1_000_000;
+        float time = (System.nanoTime() - t0)/1_000;//_000;
 
 //        System.out.println("shortest: " + dist + " min (" + time + " ms)");
-        System.out.println("From:" + from + "\t" + "To:" + to + "\t" + "shortest: " + dist + " min (" + time + " ms)");
+        System.out.println("From:" + from + "\t" + "To:" + to + "\t" + "shortest: " + dist + " min (" + time + " us)");
     }
 
     private Integer shortest(City from, City to, Integer max) {
